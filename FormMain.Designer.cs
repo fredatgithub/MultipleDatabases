@@ -38,6 +38,7 @@ namespace MultipleDatabases
       this.ClientSize = new System.Drawing.Size(800, 450);
       this.Name = "FormMain";
       this.Text = "Multiple databases";
+      this.Load += new System.EventHandler(this.FormMain_Load);
       this.ResumeLayout(false);
 
     }
