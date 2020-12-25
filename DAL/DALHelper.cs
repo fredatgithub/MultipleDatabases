@@ -187,7 +187,6 @@ namespace FredSQLCompare.DAL
       bool result = false;
       using (SqlConnection connection = new SqlConnection(GetConnexionString()))
       {
-        //string query = "INSERT INTO [dbo].[BitCoin] ([Date], [RateEuros], [RateDollar]) VALUES(@theDate, @rateEuro, @ratedollar)";
         string query = sqlQuery;
 
         using (SqlCommand command = new SqlCommand(query, connection))
