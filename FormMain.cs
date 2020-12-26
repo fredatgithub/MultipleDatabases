@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using MultipleDatabases.DAL;
 
 namespace MultipleDatabases
 {
@@ -17,8 +12,13 @@ namespace MultipleDatabases
       InitializeComponent();
     }
 
+    public List<string> DatabaseNames = new List<string>();
+
     private void FormMain_Load(object sender, EventArgs e)
     {
+      // loading databases
+      string sqlQuery = Connexions.GetAllDatabaseNamesRequest();
+
 
     }
   }

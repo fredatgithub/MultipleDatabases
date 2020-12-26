@@ -1,4 +1,4 @@
-﻿namespace FredSQLCompare.DAL
+﻿namespace MultipleDatabases.DAL
 {
   public static class Connexions
   {

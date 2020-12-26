@@ -4,7 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Reflection;
 
-namespace FredSQLCompare.DAL
+namespace MultipleDatabases.DAL
 {
   public static class DALHelper
   {

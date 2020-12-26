@@ -1,4 +1,4 @@
-﻿namespace FredSQLCompare.Model
+﻿namespace MultipleDatabases.Model
 {
   internal class DatabaseAuthentication
   {
