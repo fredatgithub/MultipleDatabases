@@ -23,11 +23,12 @@ namespace MultipleDatabases
       DatabaseAuthentication dbConnexionSource = new DatabaseAuthentication
       {
         UserName = Properties.Settings.Default.UserName ,
-        UserPassword = Properties.Settings.Default.UserName,
+        UserPassword = Properties.Settings.Default.UserPassword,
         ServerName = Properties.Settings.Default.ServerName,
         DatabaseName = Properties.Settings.Default.DatabaseName
       };
 
+      dbConnexionSource.DatabaseName = "master";
       // verify target db connexion
       if (!DALHelper.VerifyDatabaseConnexion(sqlQuery, dbConnexionSource.DatabaseName, dbConnexionSource.ServerName))
       {
@@ -35,7 +36,7 @@ namespace MultipleDatabases
         return;
       }
 
-      dbConnexionSource.DatabaseName = "master";
+      
       List<string> listOfDatabaseNames = DALHelper.ExecuteSqlQueryToListOfStrings(sqlQuery, dbConnexionSource.DatabaseName, Dns.GetHostName());
 
       listBoxDatabaseName.Items.Clear();
