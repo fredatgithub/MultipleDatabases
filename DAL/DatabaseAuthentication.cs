@@ -1,4 +1,4 @@
-﻿namespace MultipleDatabases.Model
+﻿namespace MultipleDatabases.DAL
 {
   internal class DatabaseAuthentication
   {

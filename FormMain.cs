@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Windows.Forms;
 using MultipleDatabases.DAL;
 
@@ -18,7 +19,23 @@ namespace MultipleDatabases
     {
       // loading databases
       string sqlQuery = Connexions.GetAllDatabaseNamesRequest();
+      // verify source db connexion
+      DatabaseAuthentication dbConnexionSource = new DatabaseAuthentication
+      {
+        UserName = Properties.Settings.Default.UserName ,
+        UserPassword = Properties.Settings.Default.UserName,
+        ServerName = Properties.Settings.Default.ServerName,
+        DatabaseName = Properties.Settings.Default.DatabaseName
+      };
 
+      // verify target db connexion
+      if (!DALHelper.VerifyDatabaseConnexion(sqlQuery, dbConnexionSource.DatabaseName, dbConnexionSource.ServerName))
+      {
+        MessageBox.Show($"Cannot connect to the database: {dbConnexionSource.DatabaseName} on the server: {dbConnexionSource.ServerName}");
+        return;
+      }
+
+      List<string> listOfTableNameSource = DALHelper.ExecuteSqlQueryToListOfStrings(sqlQuery, dbConnexionSource.DatabaseName, Dns.GetHostName());
 
     }
   }
