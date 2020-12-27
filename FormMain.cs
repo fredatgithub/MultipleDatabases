@@ -35,8 +35,14 @@ namespace MultipleDatabases
         return;
       }
 
-      List<string> listOfTableNameSource = DALHelper.ExecuteSqlQueryToListOfStrings(sqlQuery, dbConnexionSource.DatabaseName, Dns.GetHostName());
+      dbConnexionSource.DatabaseName = "master";
+      List<string> listOfDatabaseNames = DALHelper.ExecuteSqlQueryToListOfStrings(sqlQuery, dbConnexionSource.DatabaseName, Dns.GetHostName());
 
+      listBoxDatabaseName.Items.Clear();
+      foreach (string dbName in listOfDatabaseNames)
+      {
+        listBoxDatabaseName.Items.Add(dbName);
+      }
     }
   }
 }
