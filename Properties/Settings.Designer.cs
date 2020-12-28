@@ -58,5 +58,14 @@ namespace MultipleDatabases.Properties {
                 return ((string)(this["DatabaseName"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Gest")]
+        public string DatabasePattern {
+            get {
+                return ((string)(this["DatabasePattern"]));
+            }
+        }
     }
 }

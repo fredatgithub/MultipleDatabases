@@ -37,12 +37,18 @@ namespace MultipleDatabases
       }
 
       
-      List<string> listOfDatabaseNames = DALHelper.ExecuteSqlQueryToListOfStrings(sqlQuery, dbConnexionSource.DatabaseName, Dns.GetHostName());
+      List<string> listOfDatabaseNames = DALHelper.ExecuteSqlQueryToListOfStrings(sqlQuery, dbConnexionSource.DatabaseName, dbConnexionSource.ServerName);
 
       listBoxDatabaseName.Items.Clear();
-      foreach (string dbName in listOfDatabaseNames)
+      if (Properties.Settings.Default.DatabasePattern != string.Empty)
       {
-        listBoxDatabaseName.Items.Add(dbName);
+        foreach (string dbName in listOfDatabaseNames)
+        {
+          if (dbName.ToLower().StartsWith(Properties.Settings.Default.DatabasePattern.ToLower()))
+          {
+            listBoxDatabaseName.Items.Add(dbName);
+          }
+        }
       }
     }
   }

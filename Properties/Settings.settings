@@ -14,5 +14,8 @@
     <Setting Name="DatabaseName" Type="System.String" Scope="Application">
       <Value Profile="(Default)">DatabaseName</Value>
     </Setting>
+    <Setting Name="DatabasePattern" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Gest</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
